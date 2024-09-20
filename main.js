@@ -1,8 +1,3 @@
-
-//global variables to track score
-let humanScore = 0;
-let computerScore = 0;
-
 //Computer choice for rock, paper or scissors 
 function getComputerChoice() {
     //Random number to equal string
@@ -21,7 +16,7 @@ function getComputerChoice() {
 
 //Human choice
 function getHumanChoice() {
-    let choice = Number(prompt("Enter a number: \n1.Rock \n2.Paper \n3.Scissors"));
+    let choice = parseInt(prompt("Enter a number: \n1.Rock \n2.Paper \n3.Scissors")); 
     
     if (choice === 1) {
         return "Rock";
@@ -34,38 +29,75 @@ function getHumanChoice() {
     }
 }
 
-//Play round function for a single round play
-function playRound(humanChoice, computerChoice) {
-    if (humanChoice === "Rock" && computerChoice === "Scissors") {
-        console.log("You won! Rock beats Scissors");
-        humanScore++;
+//Play game function for 5 rounds
+function playGame() {
+    //Score and round tracking variables
+    let humanScore = 0;
+    let computerScore = 0;
+    let round = 0;
+
+    alert("You have 5 rounds to beat the computer at the Rock, Paper and Scissors game");
+
+    //Function to play one round
+    function playRound(humanChoice, computerChoice) {
+        if (humanChoice === "Rock" && computerChoice === "Scissors") {
+            console.log("You won! Rock beats Scissors");
+            humanScore++;
+        }
+        else if (humanChoice === "Paper" && computerChoice === "Rock") {
+            console.log("You won! Paper beats Rock");
+            humanScore++;
+        }
+        else if (humanChoice === "Scissors" && computerChoice === "Paper") {
+            console.log("You won! Scissors beats Paper");
+            humanScore++;
+        }
+        else if (computerChoice === "Rock" && humanChoice === "Scissors") {
+            console.log("Computer won! Rock beats Scissors");
+            computerScore++;
+        }
+        else if (computerChoice === "Paper" && humanChoice === "Rock") {
+            console.log("Computer won! Paper beats Rock");
+            computerScore++;
+        }
+        else if (computerChoice === "Scissors" && humanChoice === "Paper") {
+            console.log("Computer won! Scissors beats Paper");
+            computerScore++;
+        }
+        else if (humanChoice === computerChoice) {
+            console.log("Its a tie!");
+        }
     }
-    else if (humanChoice === "Paper" && computerChoice === "Rock") {
-        console.log("You won! Paper beats Rock");
-        humanScore++;
+
+    while (round < 5) {
+        getInput();
+        round++;
+    } 
+
+    if (round = 5) {
+        declareWinner();
     }
-    else if (humanChoice === "Scissors" && computerChoice === "Paper") {
-        console.log("You won! Scissors beats Paper");
-        humanScore++;
+
+    function getInput() {
+        let humanSelection = getHumanChoice();
+        let computerSelection = getComputerChoice();
+        playRound(humanSelection, computerSelection);
     }
-    else if (computerChoice === "Rock" && humanChoice === "Scissors") {
-        console.log("Computer won! Rock beats Scissors");
-        computerScore++;
-    }
-    else if (computerChoice === "Paper" && humanChoice === "Rock") {
-        console.log("Computer won! Paper beats Rock");
-        computerScore++;
-    }
-    else if (computerChoice === "Scissors" && humanChoice === "Paper") {
-        console.log("Computer won! Scissors beats Paper");
-        computerScore++;
-    }
-    else if (humanChoice === computerChoice) {
-        console.log("Its a tie!");
+
+    getInput();
+
+    //Function to end game and declare winner
+    function declareWinner() {
+        if (humanScore > computerScore) {
+            alert(`You beat the Computer! \nYour score is ${humanScore}`);
+        }
+        else if (computerScore > humanScore) {
+            alert(`The computer beat you! \nThe computer score is ${computerScore}`);
+        }
+        else {
+            alert(`Its a tie! \nYour score: ${humanScore} \nComputer score: ${computerScore}`);
+        }
     }
 }
 
-const humanChoice = getHumanChoice();
-const computerChoice = getComputerChoice();
-
-playRound(humanChoice, computerChoice);
+playGame();
