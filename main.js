@@ -84,8 +84,6 @@ function playGame() {
         playRound(humanSelection, computerSelection);
     }
 
-    getInput();
-
     //Function to end game and declare winner
     function declareWinner() {
         if (humanScore > computerScore) {
