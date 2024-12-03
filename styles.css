@@ -1,0 +1,14 @@
+#game-container {
+    background-color: whitesmoke;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.gameBox {
+    background-color: yellowgreen;
+    height: 30em;
+    width: 30em;
+    display: flex;
+    align-items: end;
+}
