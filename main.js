@@ -102,24 +102,3 @@ playGame();
 */
 
 // New JS logic for rps-ui
-// Reference to divs
-const gameBox = document.querySelector('.gameBox');
-
-// Button elements
-const rock = document.createElement('button');
-const paper = document.createElement('button');
-const scissors = document.createElement('button');
-const playAgain = document.createElement('button');
-
-// Append buttons to .gameBox div 
-gameBox.appendChild(rock);
-rock.textContent = "ROCK";
-
-gameBox.appendChild(paper);
-paper.textContent = "PAPER";
-
-gameBox.appendChild(scissors);
-scissors.textContent = "SCISSORS";
-
-gameBox.appendChild(playAgain);
-playAgain.textContent = "Play Again";
