@@ -16,12 +16,32 @@
     width: 30em;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
-    gap: 20px;
+    gap: 15px;
+}
+
+.resetContainer {
+    margin-top: 15px;
 }
 
 button {
     border-radius: 5px;
     border: .15em solid;
+    font-weight: 800;
+    font-size: medium;
+    height: 2em;
+    width: 7em;
+}
+
+#reset {
+    height: 3em;
+    width: 7em;
+    font-size: 20px;
+    padding: 0;
+}
+
+img {
+    height: 300px;
+    width: 300px;
 }
