@@ -77,6 +77,7 @@ function playRound(humanSelection, computerSelection) {
     if (!resultDiv) {
         resultDiv = document.createElement("div");
         resultDiv.id = "result";
+        resultDiv.style.fontSize = "1em";
         gameBox.appendChild(resultDiv);
     }
     resultDiv.textContent = `Round ${round}: ${resultMessage} | Score - You: ${humanScore}, Computer: ${computerScore}`;   
@@ -94,10 +95,10 @@ function declareWinner() {
     finalDiv.style.fontSize = "1.5em";
 
     if (humanScore > computerScore) {
-        finalDiv.textContent = `🎉 You won ${humanScore} out of 5 rounds!`;
+        finalDiv.textContent = `🎉 You won! Your Score: ${humanScore} | Computer Score: ${computerScore}`;
     } 
     else if (computerScore > humanScore) {
-            finalDiv.textContent = `💻 Computer won ${computerScore} out of 5 rounds!`;
+            finalDiv.textContent = `💻 Computer won! Computer Score: ${computerScore} | Your Score: ${humanScore}`;
     } 
     else {
         finalDiv.textContent = "🤝 It's a tie!";
