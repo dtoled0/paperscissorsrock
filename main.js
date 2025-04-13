@@ -100,7 +100,7 @@ function declareWinner() {
     else if (computerScore > humanScore) {
             finalDiv.textContent = `💻 Computer won! Computer Score: ${computerScore} | Your Score: ${humanScore}`;
     } 
-    else {
+    else if (humanScore === computerScore) {
         finalDiv.textContent = "🤝 It's a tie!";
     }
 
