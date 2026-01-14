@@ -1,6 +1,5 @@
-// Score variables
-let humanScore = 0;
-let computerScore = 0;
+// Variables
+let round = 0;
 
 // Function to get a random choice for the computer
 function getComputerChoice() {
@@ -16,8 +15,13 @@ function getUserChoice() {
     return userChoice.toLowerCase();
 }
 
-function playRound(humanChoice, computerChoice) {
-    switch(humanChoice + computerChoice) {
+function playGame() {
+    // Score variables
+    let humanScore = 0;
+    let computerScore = 0;
+    
+    function playRound(humanChoice, computerChoice) {
+        switch(humanChoice + computerChoice) {
         case "rockrock":
             console.log("Rocking around the christmas tree 🎶... and it's a tie.");
             break;
@@ -46,15 +50,33 @@ function playRound(humanChoice, computerChoice) {
             break;
         case "scissorspaper":
             console.log("Scissors cut Paper. You win!");
-            humanChoice++;
+            humanScore++;
             break;
         case "scissorsscissors":
             console.log("Scissors Scissors Scissors. We've got a tie lads!");
             break;
+        }   
+    }
+
+    while(round < 5) {
+        let humanSelection = getUserChoice();
+        let computerSelection = getComputerChoice();
+
+        playRound(humanSelection, computerSelection);
+        round++;
+    }
+
+    if(round = 5) {
+        if(humanScore > computerScore) {
+            console.log(`User Score: ${humanScore} \nComputer Score: ${computerScore} \nYou won!`);
+        }
+        else if(computerScore > humanScore) {
+            console.log(`User Score: ${humanScore} \nComputer Score: ${computerScore} \nThe robot won!`);
+        }
+        else {
+            console.log(`Your Score: ${humanScore} | Computer Score ${computerScore} \nYou are equally great at this! \n\nOr totally suck at it 🤔`)
+        }
     }
 }
 
-const humanSelection = getUserChoice();
-const computerSelection = getComputerChoice();
-
-playRound(humanSelection, computerSelection);
+playGame();
